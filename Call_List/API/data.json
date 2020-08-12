@@ -1,0 +1,11 @@
+{
+  "students": [
+    {
+      "name": "Jardel Osorio Duarte",
+      "ccr": "GEX103",
+      "curse": "CC",
+      "presence": true,
+      "id": 1
+    }
+  ]
+}
