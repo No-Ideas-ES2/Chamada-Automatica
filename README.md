@@ -13,8 +13,7 @@
 
 
 Como Testar :
-install: npm i -g json-serve
-intall: npm i -g ionic/cli 
+install: npm i -g json-serve ionic/cli 
 
 1 - Clone repositório - $ git clone https//:link
  
