@@ -1,37 +1,11 @@
-import { Usuario } from 'src/usuarios/usuarios.entity';
-import {
-  Column,
-  CreateDateColumn,
-  DeleteDateColumn,
-  Entity,
-  ManyToOne,
-  PrimaryGeneratedColumn,
-  UpdateDateColumn,
-} from 'typeorm';
+import { DefaultEntity } from 'src/common/interfaces/default-entity.interface'
+import { Column, Entity } from 'typeorm'
 
 @Entity()
-export class Disciplina {
-  @PrimaryGeneratedColumn('uuid')
-  id: string;
+export class Disciplina extends DefaultEntity {
+  @Column()
+  codigo: string
 
   @Column()
-  codigo: string;
-
-  @Column()
-  nome: string;
-
-  @ManyToOne(() => Usuario)
-  professor: Usuario;
-
-  @Column()
-  @CreateDateColumn()
-  readonly criadoEm: Date;
-
-  @Column()
-  @UpdateDateColumn()
-  readonly atualizadoEm: Date;
-
-  @Column()
-  @DeleteDateColumn()
-  readonly excluidoEm: Date;
+  nome: string
 }

@@ -1,13 +1,9 @@
-import { IsOptional, IsUUID } from 'class-validator';
+import { IsOptional } from 'class-validator'
 
 export class AtualizarDisciplinaDto {
   @IsOptional()
-  codigo?: string;
+  codigo?: string
 
   @IsOptional()
-  nome?: string;
-
-  @IsOptional()
-  @IsUUID()
-  idProfessor?: string;
+  nome?: string
 }

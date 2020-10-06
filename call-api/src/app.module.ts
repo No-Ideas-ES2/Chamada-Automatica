@@ -7,6 +7,7 @@ import { DisciplinaModule } from './disciplina/disciplinas.module';
 import { ConfigModule } from '@nestjs/config';
 import * as Joi from '@hapi/joi';
 import { DatabaseModule } from './database/database.module';
+import { TurmasModule } from './turmas/turmas.module';
 
 @Module({
   imports: [
@@ -19,6 +20,7 @@ import { DatabaseModule } from './database/database.module';
     AuthModule,
     UsuariosModule,
     DisciplinaModule,
+    TurmasModule,
   ],
   controllers: [AppController],
   providers: [AppService],

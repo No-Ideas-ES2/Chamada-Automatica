@@ -1,13 +1,9 @@
-import { IsNotEmpty, IsUUID } from 'class-validator';
+import { IsNotEmpty, IsUUID } from 'class-validator'
 
 export class CriarDisciplinaDto {
   @IsNotEmpty()
-  codigo: string;
+  codigo: string
 
   @IsNotEmpty()
-  nome: string;
-
-  @IsNotEmpty()
-  @IsUUID()
-  idProfessor: string;
+  nome: string
 }
