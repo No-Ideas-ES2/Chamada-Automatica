@@ -5,7 +5,7 @@ import { CriarTurmaDto } from './dtos/criar-turma.dto'
 import { Turma } from './turma.entity'
 import { TurmasService } from './turmas.service'
 
-@Controller('turmas')
+@Controller('api/turmas')
 export class TurmasController {
   constructor(private turmasService: TurmasService) {}
 

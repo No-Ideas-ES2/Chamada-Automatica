@@ -1,6 +1,5 @@
 import { Injectable, InternalServerErrorException, NotFoundException } from '@nestjs/common'
 import { InjectRepository } from '@nestjs/typeorm'
-import { UsuariosService } from 'src/usuarios/usuarios.service'
 import { Repository } from 'typeorm'
 import { Disciplina } from './disciplina.entity'
 import { AtualizarDisciplinaDto } from './dtos/atualizar-disciplina.dto.'
@@ -12,8 +11,7 @@ export class DisciplinasService {
 
   constructor(
     @InjectRepository(Disciplina)
-    private readonly repositorio: Repository<Disciplina>,
-    private readonly usuarioService: UsuariosService
+    private readonly repositorio: Repository<Disciplina>
   ) {}
 
   buscarTodas(): Promise<Disciplina[]> {

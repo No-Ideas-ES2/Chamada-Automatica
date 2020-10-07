@@ -14,15 +14,15 @@ export class DisciplinasController {
     return this.disciplinasService.buscarTodas()
   }
 
-  @Get('/:id')
-  async consultar(@Param('id', UUIDPipe) id: string): Promise<Disciplina | Disciplina[]> {
-    return this.disciplinasService.buscarPorId(id)
-  }
-
   @Post()
   @UsePipes(ValidationPipe)
   async criar(@Body() criarDisciplina: CriarDisciplinaDto): Promise<Disciplina> {
     return this.disciplinasService.criar(criarDisciplina)
+  }
+
+  @Get('/:id')
+  async consultar(@Param('id', UUIDPipe) id: string): Promise<Disciplina | Disciplina[]> {
+    return this.disciplinasService.buscarPorId(id)
   }
 
   @Put('/:id')

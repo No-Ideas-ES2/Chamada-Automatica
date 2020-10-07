@@ -1,24 +1,18 @@
-import {
-  Column,
-  CreateDateColumn,
-  DeleteDateColumn,
-  PrimaryGeneratedColumn,
-  UpdateDateColumn,
-} from 'typeorm';
+import { Column, CreateDateColumn, DeleteDateColumn, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm'
 
 export class DefaultEntity {
   @PrimaryGeneratedColumn('uuid')
-  id: string;
+  readonly id: string
 
   @Column()
   @CreateDateColumn()
-  readonly criadoEm: Date;
+  readonly criadoEm: Date
 
   @Column()
   @UpdateDateColumn()
-  readonly atualizadoEm: Date;
+  readonly atualizadoEm: Date
 
   @Column()
   @DeleteDateColumn()
-  readonly excluidoEm: Date;
+  readonly excluidoEm: Date
 }

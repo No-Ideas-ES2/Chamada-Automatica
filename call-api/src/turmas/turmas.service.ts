@@ -1,4 +1,5 @@
 import { BadRequestException, Injectable, NotFoundException } from '@nestjs/common'
+import { InjectRepository } from '@nestjs/typeorm'
 import { TipoUsuario } from 'src/usuarios/tipo-usuario.enum'
 import { Usuario } from 'src/usuarios/usuarios.entity'
 import { UsuariosService } from 'src/usuarios/usuarios.service'
@@ -8,7 +9,10 @@ import { Turma } from './turma.entity'
 
 @Injectable()
 export class TurmasService {
-  constructor(private repository: Repository<Turma>, private readonly usuarioService: UsuariosService) {}
+  constructor(
+    @InjectRepository(Turma) private readonly repository: Repository<Turma>,
+    private readonly usuarioService: UsuariosService
+  ) {}
 
   async criar(criarTurma: CriarTurmaDto): Promise<Turma> {
     const usuario = await this.buscarUsuario(criarTurma.idProfessor, TipoUsuario.PROFESSOR)

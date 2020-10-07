@@ -1,7 +1,8 @@
 # compiled output
 /dist
 /node_modules
-.env # não enviar informações das bases de teste
+# não enviar informações das bases de teste
+.env 
 
 # Logs
 logs

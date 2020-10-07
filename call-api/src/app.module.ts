@@ -8,6 +8,8 @@ import { ConfigModule } from '@nestjs/config';
 import * as Joi from '@hapi/joi';
 import { DatabaseModule } from './database/database.module';
 import { TurmasModule } from './turmas/turmas.module';
+import { AulasController } from './aulas/aulas.controller';
+import { AulasModule } from './aulas/aulas.module';
 
 @Module({
   imports: [
@@ -21,8 +23,9 @@ import { TurmasModule } from './turmas/turmas.module';
     UsuariosModule,
     DisciplinaModule,
     TurmasModule,
+    AulasModule,
   ],
-  controllers: [AppController],
+  controllers: [AppController, AulasController],
   providers: [AppService],
 })
 export class AppModule {}
