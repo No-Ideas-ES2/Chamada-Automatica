@@ -1,8 +1,9 @@
-import { Injectable, Logger, NotFoundException } from '@nestjs/common'
+import { BadRequestException, Injectable, Logger, NotFoundException } from '@nestjs/common'
 import { InjectRepository } from '@nestjs/typeorm'
 import { Repository } from 'typeorm'
 import { AtualizarUsuarioDto } from './dtos/atualizar-usuario.dto'
 import { CriarUsuarioDto } from './dtos/criar-usuario.dto'
+import { TipoUsuario } from './tipo-usuario.enum'
 import { Usuario } from './usuarios.entity'
 
 @Injectable()
@@ -16,10 +17,6 @@ export class UsuariosService {
 
   buscarTodos(): Promise<Usuario[]> {
     return this.usuariosRepository.find()
-  }
-
-  async buscarPorId(id: string): Promise<Usuario> {
-    return await this.buscarUsuario(id)
   }
 
   buscarPorEmail(email: string): Promise<Usuario> {
@@ -44,10 +41,14 @@ export class UsuariosService {
     await this.usuariosRepository.softDelete(id)
   }
 
-  private async buscarUsuario(id: string): Promise<Usuario> {
+  async buscarUsuario(id: string, tipo = TipoUsuario.NENHUM): Promise<Usuario> {
     const usuario = await this.usuariosRepository.findOne(id)
     if (usuario) {
-      return usuario
+      if (tipo != TipoUsuario.NENHUM && usuario.tipo == tipo) {
+        return usuario
+      } else {
+        throw new BadRequestException(`Usuário não é ${tipo}!`)
+      }
     } else {
       throw new NotFoundException(`Usuário inexistente!`)
     }

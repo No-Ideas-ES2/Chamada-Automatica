@@ -7,7 +7,7 @@ import AtualizarAulaDto from './dtos/atualizar-aula.dto'
 import CriarAulaDto from './dtos/criar-aula.dto'
 
 @Injectable()
-export default class AulasService {
+export class AulasService {
   constructor(
     @InjectRepository(Aula) private readonly repository: Repository<Aula>,
     private readonly turmasService: TurmasService
@@ -26,6 +26,7 @@ export default class AulasService {
     const aula = this.repository.create()
 
     aula.data = criarAula.data
+    aula.duracao = criarAula.duracao
     aula.turma = turma
     return this.repository.save(aula)
   }
@@ -38,6 +39,9 @@ export default class AulasService {
     }
     if (atualizarAula.data) {
       aula.data = atualizarAula.data
+    }
+    if (atualizarAula.duracao) {
+      aula.duracao = atualizarAula.duracao
     }
     return this.repository.save(aula)
   }

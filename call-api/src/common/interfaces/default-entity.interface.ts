@@ -1,6 +1,6 @@
 import { Column, CreateDateColumn, DeleteDateColumn, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm'
 
-export class DefaultEntity {
+export default class DefaultEntity {
   @PrimaryGeneratedColumn('uuid')
   readonly id: string
 

@@ -1,7 +1,7 @@
 import { Body, Controller, Delete, Get, Param, Post, Put, UsePipes, ValidationPipe } from '@nestjs/common'
 import { UUIDPipe } from 'src/common/pipes/params-pips.pipe'
 import { Aula } from './aula.entity'
-import AulasService from './aulas.service'
+import { AulasService } from './aulas.service'
 import AtualizarAulaDto from './dtos/atualizar-aula.dto'
 import CriarAulaDto from './dtos/criar-aula.dto'
 

@@ -1,4 +1,4 @@
-import { DefaultEntity } from 'src/common/interfaces/default-entity.interface'
+import DefaultEntity from 'src/common/interfaces/default-entity.interface'
 import { Usuario } from 'src/usuarios/usuarios.entity'
 import { Entity, JoinTable, ManyToMany, ManyToOne } from 'typeorm'
 

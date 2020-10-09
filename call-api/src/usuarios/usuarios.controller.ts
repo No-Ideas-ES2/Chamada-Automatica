@@ -24,7 +24,7 @@ export class UsuariosController {
 
   @Get('/:id')
   async buscarUsuario(@Param('id', UUIDPipe) id: string): Promise<Usuario> {
-    return this.usuariosService.buscarPorId(id)
+    return this.usuariosService.buscarUsuario(id)
   }
 
   @Put('/:id')

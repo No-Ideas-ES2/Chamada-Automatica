@@ -19,9 +19,6 @@ export class Presenca {
   )
   chamada: Chamada
 
-  @ManyToOne(
-    () => Usuario,
-    aluno => aluno.presencas
-  )
+  @ManyToOne(() => Usuario)
   aluno: Usuario
 }

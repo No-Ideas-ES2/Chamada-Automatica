@@ -1,8 +1,11 @@
-import { IsDateString, IsNotEmpty, IsUUID } from 'class-validator'
+import { IsDateString, IsNotEmpty, IsNumber, IsUUID } from 'class-validator'
 
 export default class CriarAulaDto {
   @IsDateString()
   data: Date
+
+  @IsNumber()
+  duracao: number
 
   @IsNotEmpty()
   @IsUUID()

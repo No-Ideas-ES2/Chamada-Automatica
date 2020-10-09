@@ -1,7 +1,6 @@
 import { BadRequestException, Injectable, NotFoundException } from '@nestjs/common'
 import { InjectRepository } from '@nestjs/typeorm'
 import { TipoUsuario } from 'src/usuarios/tipo-usuario.enum'
-import { Usuario } from 'src/usuarios/usuarios.entity'
 import { UsuariosService } from 'src/usuarios/usuarios.service'
 import { FindOneOptions, Repository } from 'typeorm'
 import { CriarTurmaDto } from './dtos/criar-turma.dto'
@@ -15,16 +14,16 @@ export class TurmasService {
   ) {}
 
   async criar(criarTurma: CriarTurmaDto): Promise<Turma> {
-    const usuario = await this.buscarUsuario(criarTurma.idProfessor, TipoUsuario.PROFESSOR)
+    const professor = await this.usuarioService.buscarUsuario(criarTurma.idProfessor, TipoUsuario.PROFESSOR)
 
     const turma = this.repository.create()
-    turma.professor = usuario
+    turma.professor = professor
     return this.repository.save(turma)
   }
 
   async adicionarAluno(id: string, idAluno: string): Promise<void> {
     const turma = await this.buscarTurma(id)
-    const aluno = await this.buscarUsuario(idAluno, TipoUsuario.ALUNO)
+    const aluno = await this.usuarioService.buscarUsuario(idAluno, TipoUsuario.ALUNO)
 
     if (turma.alunos.some(al => al.id == aluno.id)) {
       throw new BadRequestException('Aluno já cadastrado nesta turma!')
@@ -60,19 +59,5 @@ export class TurmasService {
       return turma
     }
     throw new NotFoundException('A turma não existe!')
-  }
-
-  private async buscarUsuario(id: string, tipo: TipoUsuario): Promise<Usuario> {
-    const usuario = await this.usuarioService.buscarPorId(id)
-
-    if (usuario) {
-      if (usuario.tipo == tipo) {
-        return usuario
-      } else {
-        throw new BadRequestException(`Usuário informado não é ${tipo}!`)
-      }
-    } else {
-      throw new BadRequestException('Usuário informado não existe!')
-    }
   }
 }

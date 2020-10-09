@@ -10,6 +10,7 @@ import { DatabaseModule } from './database/database.module';
 import { TurmasModule } from './turmas/turmas.module';
 import { AulasController } from './aulas/aulas.controller';
 import { AulasModule } from './aulas/aulas.module';
+import { ChamadasModule } from './chamadas/chamadas.module';
 
 @Module({
   imports: [
@@ -24,6 +25,7 @@ import { AulasModule } from './aulas/aulas.module';
     DisciplinaModule,
     TurmasModule,
     AulasModule,
+    ChamadasModule,
   ],
   controllers: [AppController, AulasController],
   providers: [AppService],

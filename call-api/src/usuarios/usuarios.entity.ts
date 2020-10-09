@@ -1,6 +1,5 @@
-import { DefaultEntity } from 'src/common/interfaces/default-entity.interface'
-import { Presenca } from 'src/presencas/presenca.entity'
-import { Column, Entity, OneToMany } from 'typeorm'
+import { Column, Entity } from 'typeorm'
+import DefaultEntity from 'src/common/interfaces/default-entity.interface'
 import { TipoUsuario } from './tipo-usuario.enum'
 
 @Entity()
@@ -20,10 +19,4 @@ export class Usuario extends DefaultEntity {
     default: TipoUsuario.NENHUM,
   })
   tipo: TipoUsuario
-
-  @OneToMany(
-    () => Presenca,
-    presenca => presenca.aluno
-  )
-  presencas: Presenca[]
 }
