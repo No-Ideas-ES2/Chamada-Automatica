@@ -44,7 +44,7 @@ export class UsuariosService {
   async buscarUsuario(id: string, tipo = TipoUsuario.NENHUM): Promise<Usuario> {
     const usuario = await this.usuariosRepository.findOne(id)
     if (usuario) {
-      if (tipo != TipoUsuario.NENHUM && usuario.tipo == tipo) {
+      if (tipo == TipoUsuario.NENHUM || usuario.tipo == tipo) {
         return usuario
       } else {
         throw new BadRequestException(`Usuário não é ${tipo}!`)
