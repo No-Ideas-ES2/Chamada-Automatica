@@ -1,0 +1,39 @@
+<!-- student-list.page.html -->
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-title>Lista de Chamada </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Nome</th>
+        <th scope="col">CCR</th>
+        <th scope="col">Curso</th>
+        <th scope="col">Opções</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of studentsData">
+        <td>{{ item.id }}</td>
+        <td>{{ item.name }}</td>
+        <td>{{ item.ccr }}</td>
+        <td>{{ item.curse }}</td>
+        <td style="display: flex">
+          <ion-button color="warning" size="small" routerLink='/student-edit/{{item.id}}'>
+            <ion-icon name="create"></ion-icon>
+          </ion-button>
+          <ion-button color="danger" size="small" (click)="delete(item)">
+            <ion-icon name="trash"></ion-icon>
+          </ion-button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <ion-button color="success" [routerLink]="['/student-create']">
+    Criar Aluno
+  </ion-button>
+</ion-content>
