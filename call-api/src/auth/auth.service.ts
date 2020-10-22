@@ -7,7 +7,7 @@ export class AuthService {
   constructor(
     private usuariosService: UsuariosService,
     private jwtService: JwtService,
-  ) {}
+  ) { }
 
   async validarUsuario(email: string, senha: string): Promise<any> {
     const usuario = await this.usuariosService.buscarPorEmail(email);

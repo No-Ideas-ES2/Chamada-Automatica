@@ -5,10 +5,10 @@ import { LocalAuthGuard } from './auth/local-auth.guard';
 
 @Controller('/api')
 export class AppController {
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService) { }
 
   @UseGuards(LocalAuthGuard)
-  @Post('auth/login')
+  @Post('login')
   async login(@Request() req: { user: any }): Promise<any> {
     return this.authService.login(req.user);
   }
