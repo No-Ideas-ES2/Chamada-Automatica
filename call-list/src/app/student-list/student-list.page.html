@@ -1,12 +1,12 @@
 <!-- student-list.page.html -->
 <ion-header>
   <ion-toolbar color="dark">
-    <ion-title>Lista de Chamada </ion-title>
+    <ion-title class="ion-text-center"> Lista de Chamada </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding">
-  <table class="table">
+<ion-content alt="tabela" style="margin-top:10px">
+  <table class="table table-action table-striped table-warning" style="margin-top: 5px;">
     <thead>
       <tr>
         <th scope="col">Id</th>
@@ -36,4 +36,6 @@
   <ion-button color="success" [routerLink]="['/student-create']">
     Criar Aluno
   </ion-button>
+  <ion-button color="dark" [routerLink]="['/qrcode']">
+  qrcode  </ion-button>
 </ion-content>

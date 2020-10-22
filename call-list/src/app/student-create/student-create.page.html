@@ -1,7 +1,7 @@
 <!-- student-create.html-->
 <ion-header>
   <ion-toolbar color='dark'>
-    <ion-title>Cadastro de Aluno</ion-title>
+    <ion-title class="ion-text-center">Cadastro de Aluno</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -29,6 +29,10 @@
 
 <ion-item >
   <ion-button color="success" (click)="submitForm()">Enviar </ion-button>
+  <ion-button color="dark" [routerLink]="['/student-list']">
+    Voltar 
+  </ion-button>
 </ion-item>
+
 
 </ion-content>

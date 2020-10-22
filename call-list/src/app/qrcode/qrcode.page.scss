@@ -1,0 +1,31 @@
+body {
+    color: rgba(var(--ion-text-color-rgb), 0.25);
+    
+  }
+
+  ion-content{
+    margin: 40px;
+  //  --ion-background-color:#343a40;
+    padding: 15px;
+    border-bottom: 1px solid #dddddd;
+  }
+
+  @media (max-width: 350px) {
+    .img { 
+      height: 130px;
+      width: 100px; 
+    }
+    .table-action thead {
+      display: none;
+    }
+    .table-action tr {
+      border-bottom: 1px solid #dddddd;
+    }
+    .table-action td {
+      border: 0;
+    }
+    .table-action td:not(:first-child) {
+      display: block;
+    }
+  }
+  
