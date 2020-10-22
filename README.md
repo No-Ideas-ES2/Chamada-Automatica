@@ -13,11 +13,11 @@
 
 
 Como Testar :
-install: npm i -g json-serve ionic/cli 
+install: npm i -g json-server ionic/cli 
 
 1 - Clone repositório - $ git clone https//:link
  
-2 - No repositório Call_list: $ json-server --watch API/data.json (obs se vscode terminal 1)
+2 - No repositório call-list: $ json-server --watch API/data.json (obs se vscode terminal 1)
 
-3 - Abra outro terminal(vs ou shell) tb no repositório Call_list: $ ionic serve --open 
+3 - Abra outro terminal(vs ou shell) tb no repositório call-list: $ ionic serve --open 
 
