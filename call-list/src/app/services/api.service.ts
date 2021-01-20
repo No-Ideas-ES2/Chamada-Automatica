@@ -4,6 +4,7 @@ import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http
 import { Student } from '../models/student';
 import { Observable, throwError } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
+import { Usuario } from '../models/usuario';
 
 @Injectable({
   providedIn: 'root'
@@ -11,9 +12,13 @@ import { retry, catchError } from 'rxjs/operators';
 export class ApiService {
 
   // API path
-  base_path = 'http://localhost:3000/students';
+  base_path = 'https://chamada-automatica-backend.herokuapp.com';
 
-  constructor(private http: HttpClient) { }
+  private usuario_path: string;
+
+  constructor(private http: HttpClient) {
+    this.usuario_path = this.base_path + '/usuario'
+  }
 
   // Http Options
   httpOptions = {
@@ -84,6 +89,16 @@ export class ApiService {
   deleteItem(id) {
     return this.http
       .delete<Student>(this.base_path + '/' + id, this.httpOptions)
+      .pipe(
+        retry(2),
+        catchError(this.handleError)
+      )
+  }
+
+
+  getUsuarios(): Observable<Usuario> {
+    return this.http
+      .get<Usuario>(this.usuario_path, this.httpOptions)
       .pipe(
         retry(2),
         catchError(this.handleError)

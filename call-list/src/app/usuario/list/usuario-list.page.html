@@ -1,0 +1,39 @@
+<!-- usuario-list.page.html -->
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-title class="ion-text-center"> Lista de Usuários </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content alt="tabela" style="margin-top:10px">
+  <table class="table table-action table-striped table-warning" style="margin-top : 5px;">
+    <thead>
+      <tr>
+        <th scope="col">Nome</th>
+        <th scope="col">Email</th>
+        <th scope="col">Tipo</th>
+        <th scope="col">Opções</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of usuariosData">
+        <td>{{ item.nome }}</td>
+        <td>{{ item.email }}</td>
+        <td>{{ item.tipo }}</td>
+        <td style="display: flex">
+          <ion-button color="warning" size="small" routerLink='/usuario-edit/{{item.id}}'>
+            <ion-icon name="create"></ion-icon>
+          </ion-button>
+          <ion-button color="danger" size="small" (click)="delete(item)">
+            <ion-icon name="trash"></ion-icon>
+          </ion-button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <ion-button color="success" [routerLink]="['/usuario-create']">
+    Criar Aluno
+  </ion-button>
+  <ion-button color="dark" [routerLink]="['/qrcode']">
+    qrcode </ion-button>
+</ion-content>
