@@ -1,0 +1,33 @@
+<!-- usuario-edit.html-->
+<ion-header>
+  <ion-toolbar color='dark'>
+    <ion-title class="ion-text-center">Alterar Usuário</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <ion-item>
+    <ion-label>Nome: </ion-label>
+    <ion-input [(ngModel)]="data.name" placeholder="Digite seu nome"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>E-mail: </ion-label>
+    <ion-input [(ngModel)]="data.email" placeholder="Endereço de e-mail"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Senha: </ion-label>
+    <ion-input type="password" [(ngModel)]="data.senha" placeholder="Senha"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-button color="success" (click)="update()">Enviar </ion-button>
+    <ion-button color="dark" [routerLink]="['/student-list']">
+      Voltar
+    </ion-button>
+  </ion-item>
+
+
+</ion-content>

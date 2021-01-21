@@ -1,0 +1,26 @@
+<!-- login.html-->
+<ion-header>
+  <ion-toolbar color='dark'>
+    <ion-title class="ion-text-center">Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+
+  <ion-item>
+    <ion-label>E-mail: </ion-label>
+    <ion-input [(ngModel)]="data.email" placeholder="Endereço de e-mail"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Senha: </ion-label>
+    <ion-input type="password" [(ngModel)]="data.senha" placeholder="Senha"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-button color="success" (click)="submitForm()">Enviar </ion-button>
+  </ion-item>
+
+
+</ion-content>
